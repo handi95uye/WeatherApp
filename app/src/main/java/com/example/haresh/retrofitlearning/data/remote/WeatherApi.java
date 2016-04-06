@@ -4,6 +4,7 @@ import com.example.haresh.retrofitlearning.data.model.Weather;
 
 import retrofit2.Call;
 import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 
 /**
@@ -20,7 +21,7 @@ public interface WeatherApi {
         private static WeatherApi service;
         public static WeatherApi getInstance() {
             if (service == null) {
-                Retrofit retrofit = new Retrofit.Builder().baseUrl(BASE_URL).build();
+                Retrofit retrofit = new Retrofit.Builder().addConverterFactory(GsonConverterFactory.create()).baseUrl(BASE_URL).build();
                 service = retrofit.create(WeatherApi.class);
                 return service;
             }
