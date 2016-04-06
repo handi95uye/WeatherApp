@@ -53,6 +53,29 @@
         android:textSize="25sp"
         android:textColor="#FF4081" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="C"
+        android:id="@+id/units"
+        android:textColor="#cfcfcf"
+        android:textSize="45sp"
+        android:layout_alignBottom="@+id/temperature"
+        android:layout_toRightOf="@+id/temperature"
+        android:layout_toEndOf="@+id/temperature" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="o"
+        android:id="@+id/degree"
+        android:layout_alignTop="@+id/temperature"
+        android:layout_alignLeft="@+id/units"
+        android:layout_alignStart="@+id/units"
+        android:textColor="#cfcfcf"
+        android:textSize="25sp" />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -63,4 +86,5 @@
         android:layout_alignEnd="@+id/city"
         android:textColor="#ffffff"
         android:background="#303F9F" />
+
 </RelativeLayout>
