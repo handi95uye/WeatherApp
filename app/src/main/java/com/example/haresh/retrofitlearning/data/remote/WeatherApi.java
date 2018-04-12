@@ -10,6 +10,7 @@ import retrofit2.http.GET;
 /**
  * Created by Handy on 06/04/2018.
  */
+
 public interface WeatherApi {
 
     String BASE_URL = "https://query.yahooapis.com/v1/public/";
@@ -21,7 +22,9 @@ public interface WeatherApi {
         private static WeatherApi service;
         public static WeatherApi getInstance() {
             if (service == null) {
-                Retrofit retrofit = new Retrofit.Builder().addConverterFactory(GsonConverterFactory.create()).baseUrl(BASE_URL).build();
+                Retrofit retrofit = new Retrofit.Builder()
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .baseUrl(BASE_URL).build();
                 service = retrofit.create(WeatherApi.class);
                 return service;
             }

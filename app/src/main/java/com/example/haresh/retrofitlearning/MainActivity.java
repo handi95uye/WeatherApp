@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.example.haresh.retrofitlearning.data.model.Weather;
 import com.example.haresh.retrofitlearning.data.remote.WeatherApi;
+import com.google.gson.Gson;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         WeatherApi.Factory.getInstance().getWeather().enqueue(new Callback<Weather>() {
             @Override
             public void onResponse(Call<Weather> call, Response<Weather> response) {
+                System.out.println("cek json cuaca : " + new Gson().toJsonTree(response));
                 temperature.setText(response.body().getQuery().getResults().getChannel().getItem().getCondition().getTemp());
                 city.setText(response.body().getQuery().getResults().getChannel().getLocation().getCity());
                 date.setText(response.body().getQuery().getResults().getChannel().getLastBuildDate());
@@ -59,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<Weather> call, Throwable t) {
                 Log.e(TAG, t.getMessage());
+
             }
         });
     }
